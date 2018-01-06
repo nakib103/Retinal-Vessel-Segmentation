@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Untitled</title><script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/BE0776D3-23F6-4242-9C11-B978E4802AFD/main.js" charset="UTF-8"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Retinal Blood Vessel Segmentation</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11771,115 +11771,32 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;h1&gt;Retinal Blood Vessel Segmentation&lt;/h1&gt;
-
-&lt;p&gt;Retinal fundus image is the image of the back of the eye taken by fundus camera. It can reveal eye defects resulted from diseases like hypertension or diabetis.
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Retinal Blood Vessel Segmentation</h1><p>Retinal fundus image is the image of the back of the eye taken by fundus camera. It can reveal eye defects resulted from diseases like hypertension or diabetis.
 An automated system to diagnosis retinopathy carries great importance as fundus image can be hars diagnose with the naked eye, for
 example to detect toruosity or vessel wall thickeing. For automated detection the first step is to seperate the vasculature from the
 rest of the eye. Here we will try to investigate the effect of different image enhencement techniques in classifying the fundus image pixel
-as vesel or non vessel.&lt;/p&gt;
-
-&lt;p&gt;The project is divided into following segments&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt; Dataset generation&lt;/li&gt;
-&lt;li&gt; Image enhecement&lt;/li&gt;
-&lt;li&gt; Classification&lt;/li&gt;
-&lt;/ol&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<h1>Retinal Blood Vessel Segmentation</h1>
-
-<p>Retinal fundus image is the image of the back of the eye taken by fundus camera. It can reveal eye defects resulted from diseases like hypertension or diabetis.
-An automated system to diagnosis retinopathy carries great importance as fundus image can be hars diagnose with the naked eye, for
-example to detect toruosity or vessel wall thickeing. For automated detection the first step is to seperate the vasculature from the
-rest of the eye. Here we will try to investigate the effect of different image enhencement techniques in classifying the fundus image pixel
-as vesel or non vessel.</p>
-
-<p>The project is divided into following segments</p>
-
-<ol>
+as vesel or non vessel.</p><p>The project is divided into following segments</p><ol>
 <li> Dataset generation</li>
 <li> Image enhecement</li>
 <li> Classification</li>
 </ol>
 </div>
-
-</div>
-
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-
-&lt;h1&gt;1. Dataset Generation&lt;/h1&gt;
-
-&lt;p&gt; We use DRIVE dataset which is the most used in the literature. In DRIVE database there are 20 train images and 20 test images 
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>1. Dataset Generation</h1><p> We use DRIVE dataset which is the most used in the literature. In DRIVE database there are 20 train images and 20 test images 
 along with their mask image and ground trith. Mask image seperates the FOV (field of view) from the rest of the image. The ground truh 
-is produced by manual segmentation.&lt;/p&gt;
-
-&lt;p&gt;We take out patches with size 27 * 27 from the images and label them according the centre pixel as positive or negative.
-From each image, both train and test set, 1000 patches are taken. So there are 20000 train patches and 20000 test patches.&lt;/p&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-
-<h1>1. Dataset Generation</h1>
-
-<p> We use DRIVE dataset which is the most used in the literature. In DRIVE database there are 20 train images and 20 test images 
-along with their mask image and ground trith. Mask image seperates the FOV (field of view) from the rest of the image. The ground truh 
-is produced by manual segmentation.</p>
-
-<p>We take out patches with size 27 * 27 from the images and label them according the centre pixel as positive or negative.
+is produced by manual segmentation.</p><p>We take out patches with size 27 * 27 from the images and label them according the centre pixel as positive or negative.
 From each image, both train and test set, 1000 patches are taken. So there are 20000 train patches and 20000 test patches.</p>
 </div>
-
 </div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -11935,40 +11852,13 @@ From each image, both train and test set, 1000 patches are taken. So there are 2
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-
-&lt;p&gt; To check whether patches are taken from all over the image evenly we check the scatter plot&lt;/p&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-
+<div class="text_cell_render border-box-sizing rendered_html">
 <p> To check whether patches are taken from all over the image evenly we check the scatter plot</p>
 </div>
-
 </div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12012,68 +11902,21 @@ From each image, both train and test set, 1000 patches are taken. So there are 2
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-
-&lt;h1&gt;2. Image Enhancement&lt;/h1&gt;
-
-&lt;p&gt; We apply different image enhencement techniques on the image patches. Here we consider six different conditions&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt; gaussian filtering&lt;/li&gt;
-&lt;li&gt; median filtering&lt;/li&gt;
-&lt;li&gt; laplacian filtering&lt;/li&gt;
-&lt;li&gt; sobel filtering&lt;/li&gt;
-&lt;li&gt; histogram equalization and&lt;/li&gt;
-&lt;li&gt; only green channel image&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt; So basically we are using some smoothing, sharpening, contrest enhancement, and noise reduction techniques. Some
-random patches after applying laplacain filter is shown below - &lt;/p&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-
-<h1>2. Image Enhancement</h1>
-
-<p> We apply different image enhencement techniques on the image patches. Here we consider six different conditions</p>
-
-<ol>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>2. Image Enhancement</h1><p> We apply different image enhencement techniques on the image patches. Here we consider six different conditions</p><ol>
 <li> gaussian filtering</li>
 <li> median filtering</li>
 <li> laplacian filtering</li>
 <li> sobel filtering</li>
 <li> histogram equalization and</li>
 <li> only green channel image</li>
-</ol>
-
-<p> So basically we are using some smoothing, sharpening, contrest enhancement, and noise reduction techniques. Some
+</ol><p> So basically we are using some smoothing, sharpening, contrest enhancement, and noise reduction techniques. Some
 random patches after applying laplacain filter is shown below - </p>
 </div>
-
 </div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12146,50 +11989,16 @@ random patches after applying laplacain filter is shown below - </p>
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-
-&lt;h1&gt;3. Classification&lt;/h1&gt;
-
-&lt;p&gt; We used keras framework with tensorflow background to implement our classifier. The network is a single dense layer with softmax activation.
-The Dense layer size is the same as the input dimension and ouput is two dimensional vector giving the probabilities of the center of
-the patch being vessel or non vessel. The loss function we used is catagorical cross entropy. Due to limited computational resource we did not
-use cross validation instead set aside the test data set as validation data.&lt;/p&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-
-<h1>3. Classification</h1>
-
-<p> We used keras framework with tensorflow background to implement our classifier. The network is a single dense layer with softmax activation.
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>3. Classification</h1><p> We used keras framework with tensorflow background to implement our classifier. The network is a single dense layer with softmax activation.
 The Dense layer size is the same as the input dimension and ouput is two dimensional vector giving the probabilities of the center of
 the patch being vessel or non vessel. The loss function we used is catagorical cross entropy. Due to limited computational resource we did not
 use cross validation instead set aside the test data set as validation data.</p>
 </div>
-
 </div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12278,48 +12087,15 @@ d:\machine_learning_softwares\anaconda3\envs\neptune\lib\site-packages\keras\mod
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-
-&lt;h1&gt; Result&lt;/h1&gt;
-
-&lt;p&gt; By tweaking with the model a bit (using adam optimizer instead of sgd and decreasing the regularization constant) a fairly good
-accuracy can be achieved from the untouched (not gone through enhencement) data for 200 epoch. Interestingly though, the enhencement images
-provide poorer result. The accuray achieved by these data are shown in bar plot - &lt;/p&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-
-<h1> Result</h1>
-
-<p> By tweaking with the model a bit (using adam optimizer instead of sgd and decreasing the regularization constant) a fairly good
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1> Result</h1><p> By tweaking with the model a bit (using adam optimizer instead of sgd and decreasing the regularization constant) a fairly good
 accuracy can be achieved from the untouched (not gone through enhencement) data for 200 epoch. Interestingly though, the enhencement images
 provide poorer result. The accuray achieved by these data are shown in bar plot - </p>
 </div>
-
 </div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12362,38 +12138,13 @@ provide poorer result. The accuray achieved by these data are shown in bar plot 
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
-&lt;p&gt;For full code and data see the project &lt;a href=&quot;https://github.com/nakib103/Retinal-Blood-Vessel-Segmentation&quot;&gt;repository&lt;/a&gt; &lt;/p&gt;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>For full code and data see the project <a href="https://github.com/nakib103/Retinal-Blood-Vessel-Segmentation">repository</a> </p>
 </div>
-
 </div>
-
-</div>
-</div>
-
 </div>
     </div>
   </div>
